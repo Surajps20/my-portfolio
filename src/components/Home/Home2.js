@@ -15,7 +15,7 @@ function Home2() {
             <p className="home-about-body">
               I fell in love with programming and I have learnt quite a bit, I think… 🤷‍♂️
               <br />
-              <br />I am fluent in classics like
+              <br />I am Good in classics like
               <i>
                 <b className="purple"> PHP, Javascript and MySQL. </b>
               </i>
