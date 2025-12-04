@@ -18,7 +18,7 @@ function Projects() {
           My Recent <strong className="purple">Works </strong>
         </h1>
         <p style={{ color: "white" }}>
-          Here are a few projects I completed during my 3-month Web Developer Internship and personal development.
+          Here are my personal projects, followed by the projects I completed during my 3-month Web Developer Internship.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
 
