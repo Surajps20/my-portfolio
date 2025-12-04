@@ -7,6 +7,7 @@ import Particle from "../Particle";
 import adminDashboard from "../../Assets/Projects/admin-dashboard.png";
 import restaurant from "../../Assets/Projects/restaurant.png";
 import dragDrop from "../../Assets/Projects/drag-drop.png";
+import ecommerceSaree from "../../Assets/Projects/Ecommerce-saree.png";
 
 function Projects() {
   return (
@@ -24,11 +25,11 @@ function Projects() {
           {/* Project 1: Ecommerce Saree website */}
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={ecommercesaree}
+              imgPath={ecommerceSaree}
               isBlog={false}
               title="Ecommerce Saree Website"
               description=" A fully functional ecommerce website for sarees, built with HTML, CSS, and JavaScript. Features include a user-friendly interface, product categories, and a secure payment gateway. The site is designed to provide an optimal shopping experience on both desktop and mobile devices."
-              ghLink="#" // Keep GitHub link as fallback or remove if not needed
+              ghLink="https://github.com/Surajps20/Ecommerce-saree-site" // Keep GitHub link as fallback or remove if not needed
               demoLink="https://surajps20.github.io/Ecommerce-saree-site/" // REPLACE THIS WITH ACTUAL LIVE LINK
             />
           </Col>
@@ -66,7 +67,7 @@ function Projects() {
               isBlog={false}
               title="Drag and Drop Interface"
               description="An interactive drag-and-drop interface built with JavaScript and PHP. Allows users to easily reorder items or upload files by dragging them onto a designated area. The backend processes the dropped items and updates the database accordingly."
-              ghLink="#"
+              ghLink="https://github.com/Surajps20/Drag-n-drop"
               demoLink="https://your-live-demo-link.com/drag-drop" // REPLACE THIS WITH ACTUAL LIVE LINK
             />
           </Col>

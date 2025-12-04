@@ -11,6 +11,8 @@ function Contact() {
     subject: "",
     message: ""
   });
+  const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -19,18 +21,40 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here (e.g., EmailJS, backend API)
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setLoading(true);
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5001/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatusMessage("✓ Thank you! Your message has been sent successfully.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatusMessage(""), 5000);
+      } else {
+        const errorData = await response.json();
+        setStatusMessage(`✗ Error: ${errorData.error || "Failed to send email"}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatusMessage("✗ Error: Could not connect to server. Make sure the backend is running on port 5001.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Container fluid className="contact-section">
       <Particle />
-      <Container>
+      <Container style={{ position: "relative", zIndex: "10" }}>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
           <Col md={12}>
             <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
@@ -65,6 +89,19 @@ function Contact() {
 
           <Col md={7} className="contact-form">
             <Form onSubmit={handleSubmit}>
+              {statusMessage && (
+                <div style={{
+                  padding: "10px",
+                  marginBottom: "15px",
+                  borderRadius: "5px",
+                  backgroundColor: statusMessage.includes("✓") ? "#d4edda" : "#f8d7da",
+                  color: statusMessage.includes("✓") ? "#155724" : "#721c24",
+                  border: `1px solid ${statusMessage.includes("✓") ? "#c3e6cb" : "#f5c6cb"}`
+                }}>
+                  {statusMessage}
+                </div>
+              )}
+
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -74,6 +111,7 @@ function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 />
               </Form.Group>
 
@@ -86,6 +124,7 @@ function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 />
               </Form.Group>
 
@@ -98,6 +137,7 @@ function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 />
               </Form.Group>
 
@@ -111,11 +151,12 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="submit-btn">
-                Send Message
+              <Button variant="primary" type="submit" className="submit-btn" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
               </Button>
             </Form>
           </Col>
