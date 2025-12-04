@@ -21,7 +21,19 @@ function Projects() {
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
 
-          {/* Project 1: Admin Dashboard */}
+          {/* Project 1: Ecommerce Saree website */}
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={ecommercesaree}
+              isBlog={false}
+              title="Ecommerce Saree Website"
+              description=" A fully functional ecommerce website for sarees, built with HTML, CSS, and JavaScript. Features include a user-friendly interface, product categories, and a secure payment gateway. The site is designed to provide an optimal shopping experience on both desktop and mobile devices."
+              ghLink="#" // Keep GitHub link as fallback or remove if not needed
+              demoLink="https://surajps20.github.io/Ecommerce-saree-site/" // REPLACE THIS WITH ACTUAL LIVE LINK
+            />
+          </Col>
+
+          {/* Project 2: Admin Dashboard */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={adminDashboard}
@@ -33,7 +45,7 @@ function Projects() {
             />
           </Col>
 
-          {/* Project 2: Restaurant Website */}
+          {/* Project 3: Restaurant Website */}
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={restaurant}

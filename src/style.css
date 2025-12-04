@@ -759,3 +759,74 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+
+/* --------- */
+/* Contact Section */
+/* --------- */
+.contact-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: white !important;
+  min-height: 100vh;
+}
+
+.contact-info {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-info div {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.contact-form {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.contact-form .form-label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.contact-form .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(199, 112, 240, 0.3);
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.contact-form .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #c770f0;
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(199, 112, 240, 0.25);
+}
+
+.contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+  background-color: #c770f0 !important;
+  border: none !important;
+  padding: 12px 40px !important;
+  font-size: 1.1em !important;
+  border-radius: 5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.submit-btn:hover {
+  background-color: #a24dd3 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(199, 112, 240, 0.4);
+}
