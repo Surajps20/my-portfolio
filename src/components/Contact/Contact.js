@@ -27,7 +27,13 @@ function Contact() {
     setStatusMessage("");
 
     try {
-      const response = await fetch("http://localhost:5001/api/send-email", {
+      // Use backend URL from environment or detect from current domain
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 
+        (window.location.hostname === 'localhost' 
+          ? 'http://localhost:5001' 
+          : `${window.location.protocol}//${window.location.hostname}:5001`);
+      
+      const response = await fetch(`${backendUrl}/api/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -45,7 +51,7 @@ function Contact() {
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatusMessage("✗ Error: Could not connect to server. Make sure the backend is running on port 5001.");
+      setStatusMessage(`✗ Error: Could not connect to server. Please check if the backend is running.`);
     } finally {
       setLoading(false);
     }

@@ -7,8 +7,23 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware - Configure CORS for both local and production
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5001',
+  'http://127.0.0.1:3000',
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
 // Email transporter configuration
@@ -77,7 +92,10 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "Server is running" });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+// Handle both PORT (from AWS) and 5001 (local default)
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+  console.log(`CORS allows: ${process.env.FRONTEND_URL || "localhost"}`);
 });
