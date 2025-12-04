@@ -18,7 +18,7 @@ function Projects() {
           My Recent <strong className="purple">Works </strong>
         </h1>
         <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
+          Here are a few projects I completed during my 3-month Web Developer Internship and personal development.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
 
@@ -40,9 +40,9 @@ function Projects() {
               imgPath={adminDashboard}
               isBlog={false}
               title="Admin Dashboard with RBAC"
-              description="A comprehensive administration panel built with pure PHP and MySQL. Features include Role-Based Access Control (Admin/User), a Kanban board for task management, and full CRUD capabilities for managing website content like posters and videos. Implements secure session management and password hashing."
-              ghLink="#" // Keep GitHub link as fallback or remove if not needed
-              demoLink="https://your-live-demo-link.com/admin-dashboard" // REPLACE THIS WITH ACTUAL LIVE LINK
+              description="A comprehensive administration panel built with pure PHP and MySQL during my internship. Features include Role-Based Access Control (Admin/User), a Kanban board for task management, and full CRUD capabilities for managing website content like posters and videos. Implements secure session management and password hashing."
+              ghLink="#"
+              demoLink="https://your-live-demo-link.com/admin-dashboard"
             />
           </Col>
 
@@ -52,9 +52,9 @@ function Projects() {
               imgPath={restaurant}
               isBlog={false}
               title="Raka Restaurant Booking System"
-              description="A dynamic restaurant website featuring a categorized menu and an automated table booking system. Users can select dates, times, and guest counts, with the system automatically calculating a 50% advance payment. Built with PHP, MySQL, HTML5, and CSS3."
+              description="A dynamic restaurant website completed during my internship, featuring a categorized menu and an automated table booking system. Users can select dates, times, and guest counts, with the system automatically calculating a 50% advance payment. Built with PHP, MySQL, HTML5, and CSS3."
               ghLink="#"
-              demoLink="https://your-live-demo-link.com/restaurant" // REPLACE THIS WITH ACTUAL LIVE LINK
+              demoLink="https://your-live-demo-link.com/restaurant"
             />
           </Col>
 

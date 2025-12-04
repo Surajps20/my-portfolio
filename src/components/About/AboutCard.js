@@ -10,9 +10,9 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Suraj</span> from <span className="purple"> Madurai, India.</span>
             <br />
-            I am currently working as a <span className="purple">Web Developer Intern</span>.
+            I completed a <span className="purple">3-month Web Developer Internship</span> where I gained hands-on experience in full-stack development.
             <br />
-            I specialize in building full-stack web applications using <span className="purple">PHP and MySQL</span>.
+            I specialize in building full-stack web applications using <span className="purple">PHP, MySQL, JavaScript, React, and Bootstrap</span>.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
