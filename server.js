@@ -93,9 +93,9 @@ app.get("/api/health", (req, res) => {
 });
 
 // Handle both PORT (from AWS) and 5001 (local default)
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, "0.0.0.0", () => {
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
-  console.log(`CORS allows: ${process.env.FRONTEND_URL || "localhost"}`);
+  // console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+  // console.log(`CORS allows: ${process.env.FRONTEND_URL || "localhost"}`);
 });

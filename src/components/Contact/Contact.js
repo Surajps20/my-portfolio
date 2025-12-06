@@ -4,6 +4,11 @@ import Particle from "../Particle";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
+// ---------------------------------------------------------
+// FIXED: URL defined here so it is ALWAYS available
+// ---------------------------------------------------------
+const BACKEND_URL = "https://ufu6uo1u94.execute-api.us-east-1.amazonaws.com/default/PortfolioContactform";
+
 function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,13 +32,8 @@ function Contact() {
     setStatusMessage("");
 
     try {
-      // Use backend URL from environment or detect from current domain
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || 
-        (window.location.hostname === 'localhost' 
-          ? 'http://localhost:5001' 
-          : `${window.location.protocol}//${window.location.hostname}:5001`);
-      
-      const response = await fetch(`${backendUrl}/api/send-email`, {
+      // We use BACKEND_URL here, which is definitely defined at the top
+      const response = await fetch(BACKEND_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -51,7 +51,7 @@ function Contact() {
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatusMessage(`✗ Error: Could not connect to server. Please check if the backend is running.`);
+      setStatusMessage(`✗ Error: Could not connect to AWS server.`);
     } finally {
       setLoading(false);
     }
@@ -79,12 +79,12 @@ function Contact() {
             </div>
 
             <div style={{ marginBottom: "20px" }}>
-              <AiOutlinePhone style={{ fontSize: "1.5em", marginRight: "10px" }} />
+              <AiOutlinePhone style={{ fontSize: "1.5em", marginRight: "1.5em" }} />
               <span>+91 94886 30606 </span>
             </div>
 
             <div style={{ marginBottom: "20px" }}>
-              <FaMapMarkerAlt style={{ fontSize: "1.5em", marginRight: "10px" }} />
+              <FaMapMarkerAlt style={{ fontSize: "1.5em", marginRight: "1.5em" }} />
               <span>Madurai, TamilNadu</span>
             </div>
 
